@@ -31,7 +31,7 @@ def main():
 # ======================= connection =======================
 
 def connection(dbname):
-    dsn = f"host=localhost port=5433 user=postgres password=postgres dbname={dbname}"
+    dsn = f"host=localhost port=5432 user=postgres password=12345 dbname={dbname}"
     conn = psycopg2.connect(dsn, cursor_factory=RealDictCursor)
     cursor = conn.cursor()
     return conn, cursor
@@ -39,7 +39,7 @@ def connection(dbname):
 # ======================= create =======================
 
 def create():
-    conn_otomasi, cursor_otomasi = connection('pagila_otomasi2')
+    conn_otomasi, cursor_otomasi = connection('pagila_otomasi')
     
     # Prepare schema
     create_staging(conn_otomasi, cursor_otomasi)
